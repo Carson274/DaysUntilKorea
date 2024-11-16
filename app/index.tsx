@@ -37,15 +37,17 @@ export default function Index() {
     <SafeAreaView style={styles.container}>
       <SVGImg style={styles.image} width={100} height={200} />
       <View style={styles.dateContainer}>
-      <Text style={styles.dateText}>
-        {String(days).padStart(2, '0')}:
-        {String(hours).padStart(2, '0')}:
-        {String(minutes).padStart(2, '0')}:
-        {String(seconds).padStart(2, '0')}
-      </Text>
+        <Text style={styles.dateText}>
+          {String(days).padStart(2, '0')}:
+          {String(hours).padStart(2, '0')}:
+          {String(minutes).padStart(2, '0')}:
+          {String(seconds).padStart(2, '0')}
+        </Text>
       </View>
-      <Text style={styles.caption}>내가 한국에 갈 때까지</Text>
-      <Text style={styles.captionTwo}>Days Until Korea</Text>
+      <View style={styles.captionContainer}>
+        <Text style={styles.caption}>내가 한국에 갈 때까지</Text>
+        <Text style={styles.captionTwo}>Days Until Korea</Text>
+      </View>
     </SafeAreaView>
   );
 }
@@ -55,7 +57,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 10,
+    width: "100%",
+    paddingHorizontal: 0,
   },
   image: {
     top: 0,
@@ -71,6 +74,9 @@ const styles = StyleSheet.create({
     fontSize: 50,
     fontFamily: "Nunito_700Bold",
     marginHorizontal: 10,
+  },
+  captionContainer: {
+    marginTop: -10,
   },
   caption: {
     fontSize: 30,
