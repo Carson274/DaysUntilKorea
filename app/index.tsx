@@ -9,6 +9,7 @@ import {
   Nunito_700Bold,
 } from '@expo-google-fonts/nunito';
 import SVGImg from '../assets/images/app-logo.svg';
+import SplashScreen from "./SplashScreen";
 
 export default function Index() {
   let [fontsLoaded] = useFonts({
@@ -35,19 +36,23 @@ export default function Index() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <SVGImg style={styles.image} width={100} height={200} />
-      <View style={styles.dateContainer}>
-        <Text style={styles.dateText}>
-          {String(days).padStart(2, '0')}:
-          {String(hours).padStart(2, '0')}:
-          {String(minutes).padStart(2, '0')}:
-          {String(seconds).padStart(2, '0')}
-        </Text>
-      </View>
-      <View style={styles.captionContainer}>
-        <Text style={styles.caption}>내가 한국에 갈 때까지</Text>
-        <Text style={styles.captionTwo}>Days Until Korea</Text>
-      </View>
+      {fontsLoaded ? (
+      <>
+        <SVGImg style={styles.image} width={100} height={200} />
+        <View style={styles.dateContainer}>
+          <Text style={styles.dateText}>
+            {String(days).padStart(2, '0')}:
+            {String(hours).padStart(2, '0')}:
+            {String(minutes).padStart(2, '0')}:
+            {String(seconds).padStart(2, '0')}
+          </Text>
+        </View>
+        <View style={styles.captionContainer}>
+          <Text style={styles.caption}>내가 한국에 갈 때까지</Text>
+          <Text style={styles.captionTwo}>Days Until Korea</Text>
+        </View>
+      </>
+      ) : <SplashScreen />}
     </SafeAreaView>
   );
 }
